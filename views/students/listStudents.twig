@@ -1,0 +1,49 @@
+{% extends 'layout.twig' %}
+{% block additionalCSS %}
+{% endblock %}
+{% block content %}
+<!--main-content-->
+<h1>Students' List</h1>
+<div class="btn-group pull-right">
+    <button type='button' class="btn btn-info" data-toggle="modal" data-target="#addStModal"><span class="glyphicon glyphicon-plus" ></span>Add student</button>
+</div>
+<br>
+<br>
+<div class="table-responsive">
+    <table id="students" class="display">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for person in persons %}
+            <tr>
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.lastName}}</td>
+                <td>{{person.email}}</td>
+                <td>{{person.phone}}</td>
+                <td>
+                    <a href="#" class="btn btn-default" title="Update student" data-toggle="modal" data-target="#upStModal" id="{{person.id}}"><i class="glyphicon glyphicon-edit"></i></a>
+                    <a href="#" class="btn btn-default" title="Delete student" onclick="eliminar('1')"><i class="glyphicon glyphicon-trash"></i> </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'students/modals/updateStudent.html' %}
+    {% include 'students/modals/addStudent.html' %}
+    {% endblock %}
+    {% block additionalScripts %}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#students').DataTable();
+    });
+    </script>
+    {% endblock %}

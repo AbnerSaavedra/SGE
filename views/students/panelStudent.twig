@@ -1,0 +1,561 @@
+{% extends 'layout.twig' %}
+{% block additionalCSS %}
+<link href="panelStudents/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">	
+<script src="panelStudents/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$(".scroll").click(function(event){		
+						event.preventDefault();
+						$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+					});
+				});
+</script>
+<!--Calender-->
+<link rel="stylesheet" href="panelStudents/css/clndr.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="panelStudents/css/component.css" />
+<script src="panelStudents/js/underscore-min.js"></script>
+<script src="panelStudents/js/moment-2.2.1.js"></script>
+<script src="panelStudents/js/clndr.js"></script>
+<script src="panelStudents/js/site.js"></script>
+<!--End Calender-->
+
+<style>
+li#debe{
+      color:red;
+      
+  }
+.ac-container input:checked ~ article.ac-small{
+	height: auto;
+}
+.ac-container input:checked ~ article.ac-medium{
+	height: auto;
+}
+.ac-container input:checked ~ article.ac-large{
+	height: auto;
+}
+a#go{
+color:navy;
+font-weight:bold;
+text-decoration:none;
+font-size:13px;
+}
+a#go:hover{
+    color:red;
+}
+  </style>
+
+{% endblock %}
+{% block content %}
+		  <!--main-content-->
+		        <h1>Welcome to your Student Panel</h1>
+		  <div class="main-content">
+		    <!--top-header-->
+				<div class="top-header">
+				 <!--top-nav-->
+					<div class="col-md-8 top-nav">
+					  <span class="menu"> <img src="panelStudents/images/icon.png" alt=""></span>
+						<ul class="res">
+							<li><a href="profileStudent"><i class="glyphicon glyphicon-user"></i>Profile</a></li>
+							<li><a class="active" href="editProfileStudent"><i class="glyphicon glyphicon-cog"></i>Settings</a></li>
+							<li><a href="#"><i class="glyphicon glyphicon-envelope"></i>Messages<div class="rate">5</div></a></li>
+							<li><a href="logout"><i class="glyphicon glyphicon-log-out"></i>Logout<div class="rate">5</div></a></li>
+						</ul>
+			<!-- script-for-menu -->
+						 <script>
+						   $( "span.menu" ).click(function() {
+							 $( "ul.res" ).slideToggle( 300, function() {
+							 // Animation complete.
+							  });
+							 });
+						</script>
+						<!-- /script-for-menu -->
+				   </div>
+				    <div class="col-md-4 serch1">
+				    <form>
+						<input type="text" value="Search..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search...';}">
+						<input type="submit" value="">
+					</form>
+			     </div>
+				 <div class="clearfix"> </div>
+				<!--top-nav-->
+		 </div>
+		  <!--top-header-->
+		   <!--inner-content-->
+		    <div class="inner-content">
+			  <!--web-forms-->
+			    <div class="web-forms">
+				 <!--first-one-->
+				 <div class="col-md-4 first-one">
+				  <div class="first-one-inner">
+				     <h3 class="tittle">Weekly Tips</h3>
+					<p>
+						Escucha todo el inglés que puedas. Siempre que tengas la oportunidadad.<br><br>
+
+						Mira programas de televisión, o escucha música o audiolibros en inglés.<br><br>  Puedes simplemente caminar, disfrutar el paisaje, lavar los platos, leer un libro, hacer ejercicio, terminar tu tarea o trabajar mientras escuchas.<br><br>
+
+						No importa lo que hagas. Si escuchas sonidos en inglés, pronto mejorarás tus habilidades.
+					</p><center>
+					    <br>
+					    <a href="#" class="hvr-trim button2">See a Video</a></center>
+				   </div>
+			      </div>
+				   <!--second-one-->
+				 <div class="col-md-4 second-one">
+				  <div class="first-one-inner">
+				     <h3 class="tittle">HELP75 NEWS</h3>
+					<iframe width="345" height="315" src="https://www.youtube.com/embed/iAnoPfYuFoA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+				   </div>
+				          <div class="social">
+									<div class="col-md-3 social-left ph">
+										<div class="img"><h4 style="color:white; font-weight:500;">Level A1</h4><p style="color:silver;">Final Grade</p></div><span>70pts</span>
+									</div>
+									<div class="col-md-3 social-left social-middle">
+										<div class="img"><h4 style="color:white; font-weight:500;">Level A2</h4><p style="color:white;">Final Grade</p></div><span  class="tw">0pts</span>
+									</div>
+									<div class="col-md-3 social-left social-right">
+					  	               <div class="img"><h4 style="color:white; font-weight:500;">Level B1</h4><p style="color:silver;">Final Grade</p></div><span class="gmail">0pts</span>
+									</div>
+									<div class="col-md-3 social-left social-lost">
+					  	               <div class="img"><h4 style="color:white; font-weight:500;">Level B2</h4><p style="color:silver;">Final Grade</p></div><span class="email">0pts</span>
+									</div>
+									<div class="col-md-3 social-left social-right">
+					  	               <div class="img"><h4 style="color:white; font-weight:500;">FCE</h4><p style="color:silver;">Score</p></div><span class="gmail">0pts</span>
+									</div>
+									<div class="col-md-3 social-left social-lost">
+					  	               <div class="img"><h4 style="color:white; font-weight:500;">Level C1</h4><p style="color:silver;">Final Grade</p></div><span class="email">0pts</span>
+									</div>
+									<div class="col-md-3 social-left ph">
+										<div class="img"><h4 style="color:white; font-weight:500;">Level C2</h4><p style="color:silver;">Final Grade</p></div><span>0pts</span>
+									</div>
+									<div class="col-md-3 social-left social-middle">
+										<div class="img"><h4 style="color:white; font-weight:500;">IELTS/TOEFL</h4><p style="color:white;">Score</p></div><span  class="tw">0pts</span>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+			      </div>
+				   <!--//second-one-->
+				   <!--/third-one-->
+				   <div class="col-md-4 first-one">
+					    <div class="first-one-inner lost">
+						    <div class="here">
+								<div class="here-bottom">
+									<img src="panelStudents/images/men-1.jpg" alt="">
+										<h4>Jonathan Doe</h4>
+										<h6>Web Developer</h6>
+								</div>
+							</div>
+					     </div>
+						 <div class="deals">
+							<div class="sap_tabs">	
+									<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
+										 <ul class="resp-tabs-list">
+											  <li class="resp-tab-item" aria-controls="tab_item-0" role="tab">About me</li>
+											  <li class="resp-tab-item" aria-controls="tab_item-1" role="tab">Messages</li>
+											   <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-2" role="tab">Add as a Friend</li>
+										 </ul>				  	 
+										<div class="resp-tabs-container">
+											<h2 class="resp-accordion" role="tab" aria-controls="tab_item-0">
+											<span class="resp-arrow"></span>TAB DATAPOPULARConnexionConnexion</h2>
+												<h2 class="resp-accordion" role="tab" aria-controls="tab_item-1"><span class="resp-arrow"></span>RECENTS'inscrireS'inscrire</h2><h2 class="resp-accordion resp-tab-active" role="tab" aria-controls="tab_item-2"><span class="resp-arrow"></span>Mot de passeMot de passe</h2><h2 class="resp-accordion" role="tab" aria-controls="tab_item-3"><span class="resp-arrow"></span></h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
+													<p>Ut wisi enim ad minim veniam,nostrud exerci tation ullamcorpersuscipit lobortis nisl ut aliquip ex eacommodo consequat. Claritas est etiamprocessus dynamicus, qui sequitur.</p>
+												</div>
+												<h2 class="resp-accordion" role="tab" aria-controls="">
+												<span class="resp-arrow"></span>TAB DATA</h2>
+												<h2 class="resp-accordion" role="tab" aria-controls="tab_item-5"><span class="resp-arrow"></span></h2><h2 class="resp-accordion" role="tab" aria-controls="tab_item-6"><span class="resp-arrow"></span></h2><div class="tab-1 resp-tab-content" aria-labelledby="tab_item-1">
+													<p>he printing and typesetting industry.Lorem Ut wisi enim ad minim veniam,nostrud exerci tation ullamcorpersuscipit lobortis nisl ut aliquip ex eacommodo consequat. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, </p>
+												</div>										
+										</div>
+									</div>
+									<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+									<script type="text/javascript">
+										$(document).ready(function () {
+											$('#horizontalTab').easyResponsiveTabs({
+												type: 'default', //Types: default, vertical, accordion           
+												width: 'auto', //auto or any width like 600px
+												fit: true   // 100% fit in a container
+											});
+										});
+									   </script>	
+							</div>				
+				         </div>
+				      </div>
+					  	<div class="clearfix"></div>
+				   <!--//third-one-->
+			    </div>
+				  <!--//web-forms-->
+				  <!--skills-->
+				   <div class="main-skills">
+				     <!--skill-one-->
+						 <div class="col-md-4 skill-one">
+							 <div class="skill-inner">
+								<h3 class="tittle">My Skills</h3>
+								<div class="skills-top">
+									<h5>LISTENING</h5>
+									<div class="skills">
+										<div class="skill1" style="width:55%"></div>
+									</div>
+								</div>
+								<div class="skills-top">
+									<h5>SPEAKING</h5>
+									<div class="skills">
+										<div class="skill1" style="width:90%"></div>
+									</div>
+								</div>
+								<div class="skills-top">
+									<h5>WRITING</h5>
+									<div class="skills">
+										<div class="skill1" style="width:80%"></div>
+									</div>
+						     </div>			
+							<div class="skills-top lost">
+									<h5>GRAMMAR</h5>
+									<div class="skills">
+										<div class="skill1" style="width:60%"></div>
+									</div>
+						     </div>			
+                               <a href="#" class="hvr-bounce-to-bottom2">Download my Level Certificate</a>							 
+							 </div>
+						 </div>
+						  <!--//skill-one-->
+						   <!--menu-->
+						    <div class="col-md-4 skill-one">
+							    <div class="mid-menu">
+								   <span class="menu2"><lable> My To do List</lable></span>
+								   <ul class="effct1" style="display: block;">
+									<li><a href="#">Messages<span>30</span></a></li>                                             
+									<li><a href="#">Invite<span>05</span></a></li>
+									<li><a href="#">Events<span>10</span></a></li>  
+									<li><a href="#">Account Settings</a></li>  
+									<li><a href="#">Folder</a></li> 
+									<li class="lost"><a href="#">Statistics</a></li>
+								  </ul>
+								</div>
+							</div>
+						     <!--//menu-->
+							   <!--twitter-->
+							 <div class="col-md-4 skill-one">
+							    <div class="twitter">
+								   <span class="twitter"><img class="panelStudents/img-responsive" src="images/tw.png" alt=""><lable>Latest Tweet</lable></span>
+								   <div class="t-inner">
+								     <div class="t-first">
+										 <p>Ut wisi enim ad minim veniam, quisnostrud exerci tation ullamcorpersuscipit lobortis nisl ut aliquip ex eacommodo consequat. . . <a href="#">@ Admin</a> </p>
+										 <span>2 days ago</span>
+									 </div>
+									 <div class="t-first two">
+										 <p>Ut wisi enim ad minim veniam, quisnostrud exerci tation ullamcorpersuscipit lobortis nisl ut aliquip ex eacommodo consequat. . . <a href="#">@ Admin</a> </p>
+										 <span>2 days ago</span>
+									 </div>
+								   </div>
+								</div>
+							</div>
+						 <div class="clearfix"></div>
+						   
+				   </div>
+				  <!--skills-->
+				    <!--/accordions-->
+					  <div class="mid-tabs-top">
+				           <!--skill-one-->
+						 <div class="col-md-6 mid-tabs">
+						 <div id="tabs" class="tabs">
+								<nav>
+									<ul>
+										<li><a href="#section-1"><i class="glyphicon glyphicon-picture"></i> <span> Images</span></a></li>
+										<li><a href="#section-2"><i class="glyphicon glyphicon-facetime-video"></i> <span> Video</span></a></li>
+										<li><a href="#section-3"><i class="glyphicon glyphicon-file"></i> <span> Songs</span></a></li>
+									</ul>
+								</nav>
+									<div class="content">
+										<section id="section-1">
+											<div class="tab-inner">
+												<div class="tab-grids">
+													<div class="tab-img">
+														<img class="img-responsive" src="https://help75interactive.com/images/g1.jpg" alt="">
+															<h4>Class P005-2059</h4>	 
+													 </div>
+													<div class="tab-img">
+														<img class="img-responsive" src="https://help75interactive.com/images/g2.jpg" alt="">
+																<h4>Class P007-3029</h4>	 
+													</div>
+										            <div class="tab-img">
+														<img class="img-responsive" src="https://help75interactive.com/images/g4.jpg" alt="">
+															<h4>Class P002-4025</h4>	 
+																	 
+												     </div>
+														<div class="clearfix"></div>
+												</div>
+												<div class="clearfix"></div>
+											</div>
+										</section>
+										<section id="section-2">
+											<div class="tab-inner">
+												<iframe width="380" height="315" src="https://www.youtube.com/embed/3VedCwhY2i0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+											</div>
+										</section>
+										<section id="section-3">
+											<div class="tab-inner">
+											   <iframe width="560" height="315" src="https://www.youtube.com/embed/fXtlWmBM-HU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+											 </div>
+										</section>
+									</div><!-- /content -->
+								</div><!-- /tabs -->
+					</div>
+						<script src="js/cbpFWTabs.js"></script>
+						<script>
+							new CBPFWTabs( document.getElementById( 'tabs' ) );
+							</script>
+						  
+				</div>
+						  <div class="col-md-6 accordions">
+						    <section class="ac-container">
+									<div>
+										<input id="ac-1" name="accordion-1" type="checkbox" />
+										<label for="ac-1">Level A1 Lessons (First Part)</label>
+										<article class="ac-small">
+										    
+											<p><b>Lesson No.1</b> 
+											<br>Classroom Language.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.2</b>
+											<br>Meeting Each Other.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.3</b>
+											<br>The Possessive Adjectives.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.4</b>
+											<br>How do you spell your name.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.5</b>
+											<br>The Steward Family (Reading).
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.6</b>
+											<br>The Verb "To Be".
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.7</b>
+											<br>Let's go for a walk.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.8</b>
+											<br>Some feelings and expressions.
+											<a href="#" id="go">Click to Go!</a>
+											</p>
+										
+										</article>
+									</div>
+									<div>
+										<input id="ac-2" name="accordion-1" type="checkbox" />
+										<label for="ac-2">Level A1 Lessons (Second Part)</label>
+										<article class="ac-medium">
+											<p><b>Lesson No.9</b> 
+											<br>The Whole Family.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.10</b>
+											<br>Nationalities and Jobs.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.11</b>
+											<br>The Hungry animals.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.12</b>
+											<br>Demonstratives.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.13</b>
+											<br>Possessive Pronouns.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.14</b>
+											<br>Comparatives vs. Superlatives.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.15</b>
+											<br>Wh-Questions.
+											<a href="#" id="go">Click to Go!</a>
+											<br><b>Lesson No.16</b>
+											<br>Days of the Weeks.
+											<a href="#" id="go">Click to Go!</a>
+											</p>
+										</article>
+									</div>
+									<div>
+										<input id="ac-3" name="accordion-1" type="checkbox" />
+										<label for="ac-3">Level A2 Main Objectives</label>
+										<article class="ac-large">
+											<p>An A2 level of English is sufficient for tourism in an English speaking country and socializing with English speakers, although to develop deeper friendships an A2 level is not adequate.<br><br> An A2 level of English also allows for networking with English-speaking colleagues, but working in English is limited to very familiar topics at the A2 level.<br><br> An A2 level of English is not sufficient for academic study or for consuming most English-language media (TV, movies, radio, magazines, etc.).<br><br>
+
+According to the official CEFR guidelines, someone at the A2 level in English:<br>
+
+Can understand sentences and frequently used expressions related to areas of most immediate relevance (e.g. very basic personal and family information, shopping, local geography, employment).<br><br>
+Can communicate in simple and routine tasks requiring a simple and direct exchange of information on familiar and routine matters.<br><br>
+Can describe in simple terms aspects of his/her background, immediate environment and matters in areas of immediate need. </p>
+										</article>
+									</div>
+									<div>
+										<input id="ac-4" name="accordion-1" type="checkbox" />
+										<label for="ac-4">Level B1 Main Objectives</label>
+										<article class="ac-large">
+											<p>A student at the B1 level in English will be able to do all the things that a student in level A2 can do, and in addition he will be able to:<br><br>
+
+* Discuss your personal and professional hopes and dreams for the future.<br><br>
+arrange a job interview and interview for a job in your area of expertise.<br><br>
+* Talk about your television viewing habits and favorite programs.<br><br>
+describe your education and your plans for future training.<br><br>
+* Talk about your favorite music and music trends and plan a night out to listen to live music.<br><br>
+* Talk about maintaining a healthy lifestyle and give and get advice about healthy habits.<br><br>
+* Talk about relationships and dating, including meeting people through social media.<br><br>
+* go to a restaurant, order food, engage in polite dinner conversation and pay for your food.<br><br>
+* Participate in negotiations in your area of expertise, if you have help understanding some points.<br><br>
+* Discuss workplace safety issues, report an injury and explain rules and regulations.<br><br>
+* Discuss polite behavior and respond appropriately to impolite behavior.<br><br>
+* Although progress will depend on the type of course and the individual student, students can expect to reach the B1 level in English with 400 hours of cumulative instruction.</p>
+										</article>
+									</div>
+								</section>
+
+
+						   </div>
+						  <div class="clearfix"></div>
+					    </div>
+						<div class="clearfix"> </div>
+					  <!--//accordions-->
+					    <!--/pricing-tables-->
+						<div class="pricing-grids">
+							<div class="col-md-3 pricing-grid">
+								<div class="price-value">
+									<h3>My Payments</h3>
+									<p class="price-label-1">$<span>160</span></p>
+									<a class="month" href="#">4 Months Course</a>
+									<div class="box">
+										<div class="ribbon"><span>Level A1</span></div>
+									</div>
+								</div>
+							<div class="price-bg">							
+								<ul class="count">
+								    <li><i class="glyphicon glyphicon-ok"></i>1st Month <h4>$40</h4> Payment Done</li>
+									<li><i class="glyphicon glyphicon-ok"></i>2nd Month <h4>$40</h4> Payment Done</li>
+									<li id="debe"><i class="glyphicon glyphicon-remove"></i>3rd Month <h4>$40</h4> Payment Missing</li>
+									<li><i class="glyphicon glyphicon-ok"></i>4th Month <h4>$40</h4> Payment Done</li>
+									
+								</ul>
+									<p class="bottom"><a href="#">PRINT RECORD</a></p>
+							</div>
+						</div>
+					<div class="col-md-3 pricing-grid">
+					<div class="price-value">
+						<h3>My Payments</h3>
+						<p class="price-label-1">$<span>120</span></p>
+								<a class="month" href="#">3 Months Course</a>
+								<div class="box">
+										<div class="ribbon"><span>Level A2</span></div>
+									</div>
+					</div>
+							<div class="price-bg">							
+								<ul class="count">
+								    <li><i class="glyphicon glyphicon-dashboard"></i>1st Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>2nd Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>3rd Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>4th Month <h4>$0</h4> N/A</li>
+								</ul>
+									<p class="bottom"><a href="#">PRINT RECORD</a></p>
+							</div>
+						</div>
+				<div class="col-md-3 pricing-grid">
+								<div class="price-value">
+									<h3>My Payments</h3>
+									<p class="price-label-1">$<span>160</span></p>
+								     <a class="month" href="#">4 Months Course</a>
+									 <div class="box">
+										<div class="ribbon"><span>Level B1</span></div>
+									</div>
+								</div>
+								
+										<div class="price-bg">							
+											<ul class="count">
+								    <li><i class="glyphicon glyphicon-dashboard"></i>1st Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>2nd Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>3rd Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>4th Month <h4>$0</h4> Not Coursed Yet</li>
+											</ul>
+												<p class="bottom"><a href="#">PRINT RECORD</a></p>
+										</div>
+									</div>
+								<div class="col-md-3 pricing-grid">
+									<div class="price-value">
+										<h3>My Payments</h3>
+										<p class="price-label-1">$<span>120</span></p>
+											<a class="month" href="#">4 Months Course</a>
+											<div class="box">
+										<div class="ribbon"><span>Level B2</span></div>
+									</div>
+									</div>
+											<div class="price-bg">							
+												<ul class="count">
+									<li><i class="glyphicon glyphicon-dashboard"></i>1st Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>2nd Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>3rd Month <h4>$0</h4> Not Coursed Yet</li>
+									<li><i class="glyphicon glyphicon-dashboard"></i>4th Month <h4>$0</h4> Not Coursed Yet</li>
+												</ul>
+													<p class="bottom"><a href="#">PRINT RECORD</a></p>
+											</div>
+										</div>
+						
+									<div class="clearfix"> </div>
+								</div>
+						  <!--//pricing-tables-->
+						  <!--/cal-grids-->
+						    <!--/call-inner-->
+							  <div class="cal-grids">
+							     <div class="col-md-4 call-inner">
+										 <div class="skill-inner">
+										<h3 class="tittle dow">DOWNLOAD & UPLOAD</h3>
+										 <div class="upload"> <a href="#"><img class="img-responsive" src="images/upload-one.png" alt=""></a> </div>
+										<div class="skills-top">
+										     <div class="skills two">
+												<div class="skill1 second" style="width:81%"></div>
+											</div>
+											<ul class="down">
+											  <li> <img class="img-responsive" src="images/down.png" alt="">  </li>
+										      <li> <h5 class="down">Downloading...</h5>  </li>
+											  <li> <h6 >81%</h6>  </li>
+											 </ul>
+										</div>
+										<div class="skills-top">
+											<div class="skills two">
+												<div class="skill1 second" style="width:43%"></div>
+											</div>
+											<ul class="down">
+											  <li> <img class="img-responsive" src="images/upload.png" alt="">  </li>
+										      <li> <h5 class="down">Uploading...</h5>  </li>
+											  <li> <h6 >43%</h6>  </li>
+											 </ul>
+										</div>						 
+									 </div>
+								 </div>
+								 <div class="col-md-4 call-inner">
+								   <div class="calender">
+									  <div class="cal1"><div class="clndr"><div class="clndr-controls"><div class="clndr-control-button"><p class="clndr-previous-button">previous</p></div><div class="month">September 2014</div><div class="clndr-control-button rightalign"><p class="clndr-next-button">next</p></div></div><table class="clndr-table" border="0" cellspacing="0" cellpadding="0"><thead><tr class="header-days"><td class="header-day">S</td><td class="header-day">M</td><td class="header-day">T</td><td class="header-day">W</td><td class="header-day">T</td><td class="header-day">F</td><td class="header-day">S</td></tr></thead><tbody><tr><td class="day past adjacent-month last-month calendar-day-2014-08-31"><div class="day-contents">31</div></td><td class="day past calendar-day-2014-09-01"><div class="day-contents">1</div></td><td class="day past calendar-day-2014-09-02"><div class="day-contents">2</div></td><td class="day past calendar-day-2014-09-03"><div class="day-contents">3</div></td><td class="day past calendar-day-2014-09-04"><div class="day-contents">4</div></td><td class="day past calendar-day-2014-09-05"><div class="day-contents">5</div></td><td class="day past calendar-day-2014-09-06"><div class="day-contents">6</div></td></tr><tr><td class="day past calendar-day-2014-09-07"><div class="day-contents">7</div></td><td class="day past calendar-day-2014-09-08"><div class="day-contents">8</div></td><td class="day past calendar-day-2014-09-09"><div class="day-contents">9</div></td><td class="day past calendar-day-2014-09-10"><div class="day-contents">10</div></td><td class="day past calendar-day-2014-09-11"><div class="day-contents">11</div></td><td class="day past calendar-day-2014-09-12"><div class="day-contents">12</div></td><td class="day past calendar-day-2014-09-13"><div class="day-contents">13</div></td></tr><tr><td class="day past calendar-day-2014-09-14"><div class="day-contents">14</div></td><td class="day past calendar-day-2014-09-15"><div class="day-contents">15</div></td><td class="day past calendar-day-2014-09-16"><div class="day-contents">16</div></td><td class="day past calendar-day-2014-09-17"><div class="day-contents">17</div></td><td class="day past calendar-day-2014-09-18"><div class="day-contents">18</div></td><td class="day past calendar-day-2014-09-19"><div class="day-contents">19</div></td><td class="day past calendar-day-2014-09-20"><div class="day-contents">20</div></td></tr><tr><td class="day past calendar-day-2014-09-21"><div class="day-contents">21</div></td><td class="day past calendar-day-2014-09-22"><div class="day-contents">22</div></td><td class="day past calendar-day-2014-09-23"><div class="day-contents">23</div></td><td class="day past calendar-day-2014-09-24"><div class="day-contents">24</div></td><td class="day past calendar-day-2014-09-25"><div class="day-contents">25</div></td><td class="day past calendar-day-2014-09-26"><div class="day-contents">26</div></td><td class="day past calendar-day-2014-09-27"><div class="day-contents">27</div></td></tr><tr><td class="day past calendar-day-2014-09-28"><div class="day-contents">28</div></td><td class="day past calendar-day-2014-09-29"><div class="day-contents">29</div></td><td class="day past calendar-day-2014-09-30"><div class="day-contents">30</div></td><td class="day past adjacent-month next-month calendar-day-2014-10-01"><div class="day-contents">1</div></td><td class="day past adjacent-month next-month calendar-day-2014-10-02"><div class="day-contents">2</div></td><td class="day past adjacent-month next-month calendar-day-2014-10-03"><div class="day-contents">3</div></td><td class="day past adjacent-month next-month calendar-day-2014-10-04"><div class="day-contents">4</div></td></tr></tbody></table></div></div>
+								   </div>
+								 </div>
+								 <div class="col-md-4 buttons">
+								    <div class="sub-buttons">
+									    <a href="#" class="hvr-sweep-to-right button">Button</a>
+										<a href="#" class="hvr-rectangle-out button">Button</a>
+									</div>
+									  <div class="sub-buttons">
+									    <a href="#" class="hvr-shutter-out-vertical button">Button</a>
+										<a href="#" class="hvr-radial-out button">Button</a>
+									</div>
+									<div class="sub-buttons">
+									     <a href="#" class="hvr-bounce-to-right button">Button</a>
+									    <a href="#" class="hvr-bounce-to-left button">Button</a>
+									</div>
+									<div class="sub-buttons">
+										<a href="#" class="hvr-hollow button2">Button</a>
+									   <a href="#" class="hvr-trim button2">Button</a>
+									</div>
+									<div class="sub-buttons">
+									     <a href="#" class="hvr-bounce-to-right button">Button</a>
+									    <a href="#" class="hvr-bounce-to-left button">Button</a>
+									</div>
+								 </div>
+							 	<div class="clearfix"> </div>
+								  <!--//call-inner-->
+								</div>
+							</div>
+						  <!--/cal-grids-->
+
+{% endblock %}	

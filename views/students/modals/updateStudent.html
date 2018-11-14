@@ -1,0 +1,108 @@
+<!-- Modal update student-->
+    <div id="upStModal" class="modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Update student</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="post" action="updateProfileStudent" enctype="multipart/form-data">
+                        <div class="form-group ">
+                            <label for="profilePicture" class="col-sm-2 control-label">
+                                <span class="form_required">*</span>
+                                Profile picture
+                            </label>
+                            <div class="col-sm-8">
+                                <input size="40" class="form-control" name="profilePicture" type="file" id="profilePicture" required="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname" class="col-sm-2 control-label">
+                                <span class="form_required">*</span>
+                                Apellidos
+                            </label>
+                            <div class="col-sm-8">
+                                <input size="40" class="form-control" name="lastname" type="text" id="lastname" required="" value="{{person.lastName}}"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="firstname" class="col-sm-2 control-label" required="">
+                                <span class="form_required">*</span>
+                                Nombre
+                            </label>
+                            <div class="col-sm-8">
+                                <input size="40" class="form-control" name="firstname" type="text" id="firstname" required="" value="{{person.name}}"></div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="phone" class="col-sm-2 control-label">
+                                Teléfono
+                            </label>
+                            <div class="col-sm-8">
+                                <input size="20" class="form-control" name="phone" type="text" id="phone" required="" value="{{person.phone}}"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="language" class="col-sm-2 control-label  ">
+                                Idioma
+                            </label>
+                            <div class="col-sm-8">
+                                <div class="btn-group bootstrap-select show-tick form-control">
+                                    <div class="dropdown-menu open" role="combobox">
+                                        <div class="bs-searchbox"><input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search"></div>
+                                        <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                            <li data-original-index="0"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Български</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="1"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Ελληνικά</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="2"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Bahasa Indonesia</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="3"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Bosanski</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="4"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Deutsch</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="5"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">English</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="6" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Español</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="7"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Euskara</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="8"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Français</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="9"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Galego</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="10"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Italiano</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="11"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Latviešu</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="12"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Magyar</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="13"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Nederlands</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="14"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Polski</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="15"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Português do Brasil</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="16"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Português europeu</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="17"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Slovenčina</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="18"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Slovenščina</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                            <li data-original-index="19"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Tagalog</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                        </ul>
+                                    </div><select class="selectpicker show-tick form-control" data-live-search="true" name="language" id="language" tabindex="-98" required="">
+                                        <option value="bulgarian">Български</option>
+                                        <option value="greek">Ελληνικά</option>
+                                        <option value="indonesian">Bahasa Indonesia</option>
+                                        <option value="bosnian">Bosanski</option>
+                                        <option value="german">Deutsch</option>
+                                        <option value="english">English</option>
+                                        <option value="spanish" selected="selected">Español</option>
+                                        <option value="basque">Euskara</option>
+                                        <option value="french">Français</option>
+                                        <option value="galician">Galego</option>
+                                        <option value="italian">Italiano</option>
+                                        <option value="latvian">Latviešu</option>
+                                        <option value="hungarian">Magyar</option>
+                                        <option value="dutch">Nederlands</option>
+                                        <option value="polish">Polski</option>
+                                        <option value="brazilian">Português do Brasil</option>
+                                        <option value="portuguese">Português europeu</option>
+                                        <option value="slovak">Slovenčina</option>
+                                        <option value="slovenian">Slovenščina</option>
+                                        <option value="tagalog">Tagalog</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 col-md-2"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" name="">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
