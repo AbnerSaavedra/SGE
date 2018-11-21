@@ -70,6 +70,82 @@ $map->get('logout', '/SGE/logout', [
     'controller' => 'App\Controllers\AuthController',
     'action' => 'getLogoutAction'
     ]);
+//Admin
+$map->get('panelAdmin', '/SGE/panelAdmin', [
+    'controller' => 'App\Controllers\AdminController',
+    'action' => 'getPanelAdminAction',
+    'auth' => true,
+    ]);
+//Financials
+$map->get('addFinancial', '/SGE/addFinancial', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getAddFinancialAction'
+    ]);
+$map->post('registerFinancial', '/SGE/registerFinancial', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getAddFinancialAction'
+    ]);
+$map->get('financialsList', '/SGE/financialsList', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getAllFinancialsAction'
+    ]);
+$map->get('panelFinancial', '/SGE/panelFinancial', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getPanelFinancialAction',
+    'auth' => true,
+    ]);
+$map->post('editOrDeleteFinancial', '/SGE/financialsList', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getEditOrDeleteFinancialAction'
+    ]);
+$map->get('financialTeacher', '/SGE/financialTeacher', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getProfileFinancialAction'
+    ]);
+$map->get('editProfileFinancial', '/SGE/editProfileFinancial', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getEditProfileFinancialAction',
+    'auth' => true,
+    ]);
+$map->post('updateProfileFinancial', '/SGE/updateProfileFinancial', [
+    'controller' => 'App\Controllers\FinancialController',
+    'action' => 'getUpdateProfileFinancialAction'
+    ]);
+//Teachers
+$map->get('addTeacher', '/SGE/addTeacher', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getAddTeacherAction'
+    ]);
+$map->post('registerTeacher', '/SGE/registerTeacher', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getAddTeacherAction'
+    ]);
+$map->get('teachersList', '/SGE/teachersList', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getAllTeachersAction'
+    ]);
+$map->get('panelTeacher', '/SGE/panelTeacher', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getPanelTeacherAction',
+    'auth' => true,
+    ]);
+$map->post('editOrDeleteTeacher', '/SGE/teachersList', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getEditOrDeleteTeacherAction'
+    ]);
+$map->get('profileTeacher', '/SGE/profileTeacher', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getProfileTeacherAction'
+    ]);
+$map->get('editProfileTeacher', '/SGE/editProfileTeacher', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getEditProfileTeacherAction',
+    'auth' => true,
+    ]);
+$map->post('updateProfileTeacher', '/SGE/updateProfileTeacher', [
+    'controller' => 'App\Controllers\TeacherController',
+    'action' => 'getUpdateProfileTeacherAction'
+    ]);
 //Students
 $map->get('addStudent', '/SGE/addStudent', [
     'controller' => 'App\Controllers\StudentController',
@@ -81,7 +157,8 @@ $map->post('registerStudent', '/SGE/registerStudent', [
     ]);
 $map->get('panelStudent', '/SGE/panelStudent', [
     'controller' => 'App\Controllers\StudentController',
-    'action' => 'getPanelStudentAction'
+    'action' => 'getPanelStudentAction',
+    'auth' => true,
     ]);
 $map->get('profileStudent', '/SGE/profileStudent', [
     'controller' => 'App\Controllers\StudentController',
@@ -89,7 +166,8 @@ $map->get('profileStudent', '/SGE/profileStudent', [
     ]);
 $map->get('editProfileStudent', '/SGE/editProfileStudent', [
     'controller' => 'App\Controllers\StudentController',
-    'action' => 'getEditProfileStudentAction'
+    'action' => 'getEditProfileStudentAction',
+    'auth' => true,
     ]);
 $map->post('updateProfileStudent', '/SGE/updateProfileStudent', [
     'controller' => 'App\Controllers\StudentController',
@@ -97,13 +175,12 @@ $map->post('updateProfileStudent', '/SGE/updateProfileStudent', [
     ]);
 $map->get('studentsList', '/SGE/studentsList', [
     'controller' => 'App\Controllers\StudentController',
-    'action' => 'getAllStudentsAction'
+    'action' => 'getAllStudentsAction',
+    'auth' => true,
     ]);
-
-//Admin
-$map->get('panelAdmin', '/SGE/panelAdmin', [
-    'controller' => 'App\Controllers\AdminController',
-    'action' => 'getPanelAdminAction'
+$map->post('editOrDeleteStudent', '/SGE/studentsList', [
+    'controller' => 'App\Controllers\StudentController',
+    'action' => 'getEditOrDeleteStudentAction'
     ]);
 
 //Creamos el validador de rutas
@@ -126,8 +203,8 @@ else{
     $responseMessage = null;
     if ($needsAuth && !$sessionUserId) {
 
-        $controllerName = 'App\Controller\AuthController';
-        $actionName = 'getLogout' ;
+        $controllerName = 'App\Controllers\AuthController';
+        $actionName = 'getLogoutAction' ;
     }
 
     $controller = new $controllerName;

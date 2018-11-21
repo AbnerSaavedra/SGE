@@ -1,0 +1,17 @@
+{% extends "layout.twig" %}
+{% block content %}
+	{% if responseMessage != '' %}
+		<div class="alert alert-info" role="alert">
+		    {{ responseMessage }}
+		</div>
+	{% endif %}
+	{% if person != '' %}
+		<div class="alert alert-info" role="alert">
+		    {{ person }}
+		</div>
+	{% endif %}
+<h1>Prueba</h1>
+<ul>
+    <li>Prueba</li>
+</ul>
+{% endblock %}

@@ -8,11 +8,11 @@
 			{{ responseMessage }}
 		</div>
    {% endif %}
-<div class="container-card card">
+<div class="container-card-login card">
 	<form action="login" method="POST" class="form-horizontal">
 		<div class="form-group">
-			<label for="rol">Rol</label>
-			<select name="rol">
+			<label for="rol" class="control-label">Rol</label>
+			<select name="rol" class="form-control col-md-4">
 				<option value="">Select rol...</option>
 				<option value="student">Student</option>
 				<option value="teacher">Teacher</option>
@@ -21,15 +21,15 @@
 			</select>
 		</div>
 	    <div class="form-group">
-			<label for="title">Username</label>
-			<input type="text" name="email" id="email">
+			<label for="title" class="control-label">Username</label>
+			<input type="text" name="email" id="email" class="form-control col-md-4">
 	    </div>
 	 	<div class="form-group">
-		   <label for="title">Password</label>
-		   <input type="password" name="password" id="password">
+		   <label for="title" class="control-label">Password</label>
+		   <input type="password" name="password" id="password" class="form-control col-md-4">
 		</div>
 	 
-	 <button type="submit">Login</button>
+	 <button type="submit" class="btn btn-lg btn-primary btn-block btn-signin">Login</button>
 </form>
 </div>
 {% endblock %}

@@ -9,14 +9,16 @@
 		</div>
    {% endif %}
    <div class="container-card card">
-
+<div class="btn-group pull-left">
+    <a href="panelTeacher" type='button' class="btn btn-primary"><span class="glyphicon glyphicon-back" ></span>Go back</a>
+</div>
             {% if user.profilePicture == '' %}
                 <img src="images/no-user.jpg" width="100px" class="profile-img">
             {% else %}
                 <img src="{{user.profilePicture}}" width="100px" class="profile-img">
             {% endif %}
             
-            <form method="post" class="form-horizontal" action="updateProfileStudent" enctype="multipart/form-data">
+            <form method="post" class="form-horizontal" action="updateProfileTeacher" enctype="multipart/form-data">
                 <div class="form-group ">
                     <label for="registration_lastname" class="col-sm-2 col-md-2 col-md-offset-1 control-label">
                         Profile picture
@@ -32,7 +34,7 @@
                     </label>
                     <div class="col-sm-6 col-md-6">
                         
-                        <input size="40" class="form-control" name="lastname" type="text" id="registration_lastname" required="" value="{{student.lastName}}"></div>
+                        <input size="40" class="form-control" name="lastname" type="text" id="registration_lastname" required="" value="{{teacher.lastName}}"></div>
                 </div>
                 <div class="form-group ">
                     <label for="registration_firstname" class="col-sm-2 col-md-2 col-md-offset-1 control-label" required="">
@@ -41,14 +43,14 @@
                     </label>
                     <div class="col-sm-6 col-md-6">
                         
-                        <input size="40" class="form-control" name="firstname" type="text" id="registration_firstname" required="" value="{{student.name}}"></div>
+                        <input size="40" class="form-control" name="firstname" type="text" id="registration_firstname" required="" value="{{teacher.name}}"></div>
                 </div>
                 <div class="form-group ">
                     <label for="registration_phone" class="col-sm-2 col-md-2 col-md-offset-1 control-label">
                         Teléfono
                     </label>
                     <div class="col-sm-6 col-md-6">
-                        <input size="20" class="form-control" name="phone" type="text" id="registration_phone" required="" value="{{student.phone}}"></div>
+                        <input size="20" class="form-control" name="phone" type="text" id="registration_phone" required="" value="{{teacher.phone}}"></div>
                 </div>
                 <div class="form-group">
                     <label for="registration_language" class="col-sm-2 col-md-2 col-md-offset-1 control-label  ">

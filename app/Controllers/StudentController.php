@@ -17,7 +17,7 @@ class StudentController extends BaseController{
 
 				$userValidator->assert($postData);
 				$postData = $request->getParsedBody();
-
+				$modal = $postData['modal'];
 				//To table Persons
 				$person = new person();
 				$person->lastname = $postData['lastname'];
@@ -52,8 +52,11 @@ class StudentController extends BaseController{
 			}
 
 		}
-		
-		return $this->renderHTML('addStudent.twig', ['responseMessage' => $responseMessage]);
+
+		if ($modal == 'yes') {
+			return $this->renderHTML('students/listStudents.twig', ['responseMessage' => $responseMessage]);
+		}else
+			return $this->renderHTML('addStudent.twig', ['responseMessage' => $responseMessage]);
 	}
 
 	public function getPanelStudentAction(){
@@ -114,11 +117,46 @@ class StudentController extends BaseController{
 
     public function getAllStudentsAction(){
 
-    	$students = Student::all();
+    	$students = Student::where('status', '=', 'A')->get();
     	$rol = 'student';
-    	$persons = Person::where('rol', '=', $rol)->get();
-    	return $this->renderHTML('students/listStudents.twig', 
-    							['students' => $students,
-    							  'persons' => $persons]);
+    	$persons = Person::where('rol', '=', $rol)
+    					   ->where('status', '=', 'A')->get();
+    	return $this->renderHTML('students/listStudents.twig', ['students' => $students,
+    		'persons' => $persons]);
+    }
+
+    public function getEditOrDeleteStudentAction($data){
+
+    	$postData = $data->getParsedBody();
+
+    	if ($postData['action']) {
+
+    		$responseMessage = null;
+	    	$person = Person::where('id', $postData['idStd'])->first();
+	    	$person->status = 'D';
+	    	$cedStd = $person->idCard;
+	    	$person->save();
+	    	$student = Student::where('idCard', $cedStd)->first();
+	    	$student->status = 'D';
+	    	$student->save();
+	    	$responseMessage = "Student deleted successfully!";
+	    	return $this->renderHTML('students/listStudents.twig', ['responseMessage' => $responseMessage]);
+
+    	}else{
+
+	    	$responseMessage = null;
+	    	$person = Person::where('id', $postData['idStd'])->first();
+	    	$person->lastName = $postData['lastname'];
+			$person->name = $postData['firstname'];
+			$person->phone = $postData['phone'];
+			$person->language = $postData['language'];
+	    	$person->save();
+	    	$responseMessage = "Student updated successfully!";
+	    	return $this->renderHTML('students/listStudents.twig', ['responseMessage' => $responseMessage, 'person' => $person]);
+
+    	}
+
+    	
+
     }
 }

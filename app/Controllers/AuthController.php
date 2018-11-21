@@ -19,6 +19,7 @@ class AuthController extends BaseController{
 				 		if (\password_verify($postData['password'], $user->password)) {
 				 			$_SESSION['userEmail'] = $user->email;
 				 			$_SESSION['userId'] = $user->id;
+				 			$_SESSION['rol'] = $user->rol;
 				 				$rolUser = $user->rol;
 				 				 if ($postData['rol'] == $rolUser) {
 				 				 	
@@ -29,7 +30,7 @@ class AuthController extends BaseController{
 				 						break;
 				 					case 'teacher':
 							 			//En respuesta se redirecciona.
-							 			return new RedirectResponse('/SGE/addStudent');
+							 			return new RedirectResponse('/SGE/panelTeacher');
 				 						break;
 				 					case 'financial':
 							 			//En respuesta se redirecciona.

@@ -5,7 +5,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add student</h4>
+                <h4 class="modal-title">Add teacher</h4>
             </div>
             <div class="modal-body">
                 <div class="centrar form-card">
@@ -13,7 +13,7 @@
                         <div class="form-group ">
                             <label for="registration_lastname" class="col-sm-2 control-label">
                                 <span class="form_required">*</span>
-                                Apellidos
+                                Last name
                             </label>
                             <div class="col-sm-8">
                                 <input size="40" class="form-control" name="lastname" type="text" id="registration_lastname" required="">
@@ -24,7 +24,7 @@
                         <div class="form-group ">
                             <label for="registration_firstname" class="col-sm-2 control-label" required="">
                                 <span class="form_required">*</span>
-                                Nombre
+                                Name
                             </label>
                             <div class="col-sm-8">
                                 <input size="40" class="form-control" name="firstname" type="text" id="registration_firstname" required=""></div>
@@ -33,7 +33,7 @@
                         <div class="form-group ">
                             <label for="idCard" class="col-sm-2 control-label">
                                 <span class="form_required">*</span>
-                                Cédula
+                                Id card
                             </label>
                             <div class="col-sm-8">
                                 <input id="idCard" class="form-control" name="idCard" type="text" required=""></div>
@@ -42,56 +42,47 @@
                         <div class="form-group ">
                             <label for="registration_email" class="col-sm-2 control-label">
                                 <span class="form_required">*</span>
-                                Correo electrónico
+                                E-mail
                             </label>
                             <div class="col-sm-8">
                                 <input size="40" class="form-control" name="email" type="email" id="registration_email" required=""></div>
                             <div class="col-sm-2"></div>
                         </div>
                         <div class="form-group ">
-                            <label for="horario" class="col-sm-2 control-label">
+                            <label for="registration_email" class="col-sm-2 control-label">
                                 <span class="form_required">*</span>
-                                Horario
+                                Admission date
                             </label>
                             <div class="col-sm-8">
-                                <select class="form-control" name="schedule" required="">
-                                    <option value="">Seleccione...</option>
-                                    <option value="manana">9:00am-12m</option>
-                                    <option value="tarde">3:00pm-6:00pm</option>
-                                </select>
+                                <div class='input-group date' id='datetimepicker2'>
+                                    <input type='text' class="form-control" name="adDate" />
+                                    <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
                             </div>
                             <div class="col-sm-2"></div>
                         </div>
                         <div class="form-group ">
-                            <label for="nivel" class="col-sm-2 control-label">
-                                <span class="form_required">*</span>
-                                Nivel
+                            <label for="subject" class="col-sm-2 control-label">
+                                Degree
                             </label>
                             <div class="col-sm-8">
-                                <select name="level" id="level" class="form-control" required="">
-                                    <option>Seleccione...</option>
-                                    <option>A1</option>
-                                    <option>A2</option>
-                                    <option>B1</option>
-                                    <option>B2</option>
-                                    <option>C1</option>
-                                    <option>C2</option>
-                                </select>
-                            </div>
+                                <input size="40" class="form-control" name="degree" type="text" id="degree" required=""></div>
                             <div class="col-sm-2"></div>
                         </div>
                         <div class="form-group ">
-                            <label for="registration_official_code" class="col-sm-2 control-label">
-                                Código oficial
+                            <label for="subject" class="col-sm-2 control-label">
+                                Subject
                             </label>
                             <div class="col-sm-8">
-                                <input size="40" class="form-control" name="officialCode" type="text" id="registration_official_code" required=""></div>
+                                <input size="40" class="form-control" name="subject" type="text" id="subject" required=""></div>
                             <div class="col-sm-2"></div>
                         </div>
                         <div class="form-group ">
                             <label for="pass1" class="col-sm-2 control-label">
                                 <span class="form_required">*</span>
-                                Contraseña
+                                Password
                             </label>
                             <div class="col-sm-8">
                                 <input id="pass1" size="20" autocomplete="off" class="form-control" name="pass1" type="password" required=""></div>
@@ -100,7 +91,7 @@
                         <div class="form-group ">
                             <label for="pass2" class="col-sm-2 control-label">
                                 <span class="form_required">*</span>
-                                Confirme la contraseña
+                                Confirm password
                             </label>
                             <div class="col-sm-8">
                                 <input id="pass2" size="20" autocomplete="off" class="form-control" name="pass2" type="password" required=""></div>
@@ -108,7 +99,7 @@
                         </div>
                         <div class="form-group ">
                             <label for="registration_phone" class="col-sm-2 control-label">
-                                Teléfono
+                                Phone
                             </label>
                             <div class="col-sm-8">
                                 <input size="20" class="form-control" name="phone" type="text" id="registration_phone" required=""></div>
@@ -116,7 +107,7 @@
                         </div>
                         <div class="form-group ">
                             <label for="registration_language" class="col-sm-2 control-label  ">
-                                Idioma
+                                Language
                             </label>
                             <div class="col-sm-8">
                                 <div class="btn-group bootstrap-select show-tick form-control">

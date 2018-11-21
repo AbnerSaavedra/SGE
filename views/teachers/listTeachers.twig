@@ -8,12 +8,12 @@
         </div>
    {% endif %}
 <!--main-content-->
-<h1>Students' List</h1>
+<h1>Teachers' List</h1>
 <div class="btn-group pull-left">
     <a href="panelAdmin" type='button' class="btn btn-primary"><span class="glyphicon glyphicon-back" ></span>Go back</a>
 </div>
 <div class="btn-group pull-right">
-    <button type='button' class="btn btn-info" data-toggle="modal" data-target="#addStdModal"><span class="glyphicon glyphicon-plus" ></span>Add student</button>
+    <button type='button' class="btn btn-info" data-toggle="modal" data-target="#addStdModal"><span class="glyphicon glyphicon-plus" ></span>Add teacher</button>
 </div>
 <br>
 <br>
@@ -38,16 +38,16 @@
                 <td id="email{{person.id}}">{{person.email}}</td>
                 <td id="phone{{person.id}}">{{person.phone}}</td>
                 <td>
-                    <button class="btn btn-default edSt" title="Update student" type="button" value="{{person.id}}"><i class="glyphicon glyphicon-edit"></i></button>
-                    <button href="#" class="btn btn-default delStd" title="Delete student" value="{{person.id}}"><i class="glyphicon glyphicon-trash"></i></button>
+                    <button class="btn btn-default edStd" title="Update teacher" type="button" value="{{person.id}}"><i class="glyphicon glyphicon-edit"></i></button>
+                    <button href="#" class="btn btn-default delStd" title="Delete teacher" value="{{person.id}}"><i class="glyphicon glyphicon-trash"></i></button>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     <div id="resultados_ajax2"></div>
-    {% include 'students/modals/updateStudent.twig' %}
-    {% include 'students/modals/addStudent.html' %}
+    {% include 'teachers/modals/updateTeacher.twig' %}
+    {% include 'teachers/modals/addTeacher.twig' %}
     {% endblock %}
     {% block additionalScripts %}
     <script type="text/javascript">
@@ -55,7 +55,7 @@
     $(document).ready(function() {
         $('#students').DataTable();
 
-        $(document).on('click', '.edSt', function(){
+        $(document).on('click', '.edStd', function(){
         var id=$(this).val();
         var name=$("#name"+id).text();
         var lastName=$("#lastname"+id).text();
@@ -69,13 +69,13 @@
     });
 
     $(document).on('click', '.delStd', function( event ){
-        if (confirm('Are you sure you want delete this student?')) {
+        if (confirm('Are you sure you want delete this teacher?')) {
 
             var id=$(this).val();
             var action = "delete";
              $.ajax({
                     type: "POST",
-                    url: "/SGE/studentsList",
+                    url: "/SGE/teachersList",
                     data: {'idStd' : id, 'action' : action},
             });
         }
@@ -88,19 +88,21 @@ $( "#sendStd" ).submit(function( event ) {
  var parametros = $(this).serialize();
      $.ajax({
             type: "POST",
-            url: "/SGE/registerStudent",
+            url: "/SGE/registerTeacher",
             data: parametros,
+            success: function(response){
+                console.log('Response: '+response);
+            }
     });
   event.preventDefault();
 });
 
 $( "#updStd" ).submit(function( event ) {
   $('#actDatos').attr("disabled", true);
-  
  var parametros = $(this).serialize();
      $.ajax({
             type: "POST",
-            url: "/SGE/studentsList",
+            url: "/SGE/teachersList",
             data: parametros,
     });
   event.preventDefault();
@@ -111,11 +113,18 @@ function recargarTabla() {
     
     $.ajax({
             type: "GET",
-            url: "/SGE/studentsList",
+            url: "/SGE/teachersList",
             success: function(response){
-                alert('Response: '+response);
-            }
+            console.log('Response: '+response);
+        }
     });
 }
+
+$(function() {
+    $('#datetimepicker2').datepicker({
+        locale: 'ru'
+    });
+});
+
 </script>
 {% endblock %}
